@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+
+    <title>Contact | Portfolio</title>
+</head>
+<body>
+    
+    <header>
+        <h2> <a href="index.html" class="logo">MS</a></h2> <!--logga i vänstra hörnet som leder till hem sidan-->
+        <div class="navigation"> <!-- början p ånavigeringsfältet-->
+            <a href="projects.html">Projects</a> <!--knapp som leder till sida med projekt-->
+            <a href="About.html">About me</a><!-- knapp som leder till sidan om mig-->
+            <a href="contact.html">Contact</a><!-- knapp som leder till sidan kontakt-->
+        </div>
+    </header>
+    
+
+    <div class="contact-container"> <!-- en div för huvudinnehållet på sidan-->
+        <div class="contact-links"> <!-- här i placeras bilder med länkar till sidor där man kan kontakta mig-->
+            <p><h1>Contact me on:</h1></p> <!--rubriken ovanför bildlänkarna-->
+            <a href="https://www.linkedin.com/in/malin-sundberg-07414b239/" target="_blank"><img src="bilder/in.round.png"></a> <!--länk till Linkedin, öppnas på ny flik-->
+            <a href="https://github.com/Malinsund" target="_blank"><img src="bilder/GH.round.png"></a><!--länk till gitHub, öppnas på ny flik-->
+            <a href="#" target="_blank"><img src=""></a><!--länk till .... , öppnas på ny flik-->
+            <hr>
+            
+        </div>
+        <div class="form"> <!-- ett formulär för användaren att fylla i-->
+            <p><h2>Or send me an email here:</h2></p> <!--rubriken för formuläret-->
+            <form>
+                <label for="email">Your email:</label><br> <!-- text ovanför fältet för att skriva in mejladdress-->
+                <input type="email" id="email" name="email"><br> <!-- fält där användaren fyller i mejladdress-->
+                <label for="subject">Subject:</label><br> <!-- text ovanför ämnesraden-->
+                <input type="text" id="subject" name="subject"> <!-- fält där användaren fyller i ämne-->
+                <div class="textbox"><label for="freetext">Your messege:</label><br><!-- Text ovanför skrivfält-->
+                    <textarea id="freetext" name="freetext" rows="10" cols="50">Enter text here... </textarea> <!--Skrivfält där användaren fyller i fritext i som ett meddelande-->
+                </div>    
+                <!--<div class="send.button"><button type=”button” onclick=”alert(‘Sent!’)”>Send</button></div>-->
+                <input class="submitbutton" type="submit" value="Send"> <!-- Knapp som skickar iväg mejlet-->
+              </form> <!-- slut p formuär-->
+        </div>
+    </div>
+
+
+
+
+    <footer> <!--här börjar footer -->
+        &copy;Malin Sundberg 2023 <!-- en copyright -->
+        <a href="https://www.linkedin.com/in/malin-sundberg-07414b239/" target="_blank"><img src="bilder/in.round.png"></a> <!-- Bild med länk som tar användaren till LinkedIn på ny flik-->
+        <a href="https://github.com/Malinsund" target="_blank"><img src="bilder/GH.round.png"></a> <!--Bild med länk som tar användaren till github-->
+        <a href="mailto:malin.sundbergskan@gmail.com" target="_blank"><img src="bilder/email.png"></a> <!-- Bild med länk som tar användaren till gmail -->
+     </footer>
+    
+</body>
+</html>
