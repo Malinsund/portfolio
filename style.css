@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box; 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: #010022;
+    background: #020032;
     color: white;
 }
 
@@ -26,7 +26,8 @@ header{
     justify-content: space-between;
     align-items: center;
 }
-header .logo {
+ /* styling till loggan i vänstr hörnet */
+header .logo { 
     position: relative;
     color: #ff820e;
     font-size: 25px;
@@ -34,8 +35,8 @@ header .logo {
     text-transform: uppercase;
 
 }
-
-header .navigation a{
+ /*styling till länkarna på navigeringsmeyn*/
+header .navigation a{ 
     color: #ff820e;
     background: #010022;
     text-decoration: none;
@@ -86,7 +87,7 @@ header .navigation a:hover{
 padding: 40px;
 transform: rotate(10deg);
 width: 40vw;
-overflow: hidden;
+/*overflow: hidden;*/
 margin: 20px;
 z-index: 2;
 }
@@ -185,12 +186,13 @@ h1 {
 .about-columns {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20% ;
-    grid-template-rows: 100px 200px 200px 100px 100px 100px;
+    grid-template-rows: 100px 100px 200px 100px 100px 100px;
     margin-top: 50px;
+    padding: 10px;
 
 }
 .col-1 {
- grid-row: 2/4;
+ grid-row: 2/5;
  overflow: hidden; /*Gör att bilden håller sig innanför det den blivit tillsagd att ligga*/
  
 }
@@ -202,20 +204,25 @@ h1 {
  
 }
 
+.line {
+    visibility: hidden;
+}
+
 .col-2 {
     grid-column-start: 2;
     grid-column-end: 5;
+    grid-row-start: 2;
 }
 
 .col-3 {
-    grid-row-start: 2;
+    grid-row-start: 3;
     grid-column-start: 6;
     grid-column-end: 3;
 }
 
 
 .col-4 {
-    grid-row-start: 3;
+    grid-row-start: 4;
     grid-column-start:2;
     grid-column-end:5;
 
@@ -223,8 +230,8 @@ h1 {
 
 
 .col-5 {
-    grid-row-start: 4;
-    grid-column: 6 / 3;
+    grid-row-start: 6;
+    grid-column: 5 / 3;
 }
 h3 {
     color: #ff820e;
@@ -295,7 +302,7 @@ footer img {
 }
 
 @media only screen and (max-width: 600px) {
-
+ /* här börjar brytpunkt/responsivitet för navigeringsremsan */
     header {
         padding: 10px;
         background-color: #ff820e;
@@ -313,9 +320,111 @@ footer img {
         background-color:#ff820e;
         color: #010022;
         
+    }
+
+ /*responsivitet för huvudinnehållet på hem sidan */
+    .content {
+        margin: 50px 10px; /* ändrar margin så texten placeras snyggt */
+       /* width: 550px;*/
+        padding: 0px 10px;
+        display: grid;
+        grid-template-rows: 50% 50%;
+        
+    }
+    
+    .content .info h1{
+        color: white;
+        font-size: 35px; /* ändrar textstorleken*/
+        text-transform: uppercase; /*gör stora bokstäver*/
+        font-weight: 600;
+        line-height: 40px;
+        margin-bottom: 20px;
+        text-shadow: 5px 5px 5px black;
+       
+    }
+    
+    .content .info p{
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 40px;
+        max-width: 350px;
+    }
+    .media {
+        transform: rotate(0deg);
+        padding: 0;
+    }
+    .media img {
+        max-width: 300px;
+        
+        }
+
+ /* här börjar responsivitet för projekt sidan med brytpunkt på 600*/
+
+    .container {
+        display: grid; /* Aktiverar Flexbox på container-elementet */
+        height: 70vh; /* Sätter höjden till 100% av skärmens höjd */
+    }
+
+    .main-content { 
+        padding: 20px; /* Inre marginal runt huvudinnehållet */
+        display: block; /* Aktiverar Grid-layout på huvudinnehållet */
+        /* grid-template-columns: ; */
+        gap: 20px; /* Avstånd mellan varje kort inom griden */
+    }
+  /*Här börjar responsiviteten för sidan about me med brytpunkt på 600 */
+
+    .about-columns {
+        display: flex; /* här har jag gjort om till flex för att columnerna skall hamna*/
+        flex-direction: column;
+        padding: 10px;
+    
+    }
+    .col-1 {
+        text-align: center; /* jag vet inte varför men den här gjorde att bilden hamnade i mitten*/
+        
+    }
+    .col-1 img {
+        border-radius: 0%; /*tar bort de rundade hörnen */
+        border: solid #ca680b; /* lägger till en orange kant */
+        object-fit:fill; /* fyller ut bilden */
+    }
+
+    .line {
+        visibility: visible;
+        margin: 10px;
+        
+    }
+    .col-5 img{
+        max-width: 50px;
+    }
+    
+  
+
+    /* här börjar responsiviteten till kontakta mig sidan med en brytpunkt på 600*/
+
+    .contact-container h1 {
+        font-size: 25px;
+    }
+
+    .contact-container h2{
+        font-size: 20px;
+    }
+
+    .contact-links img {
+        max-width: 50px;
+        margin: 15px 5px 1px 10px;
         
     }
 
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 550px;
+        padding:0;
+        margin: 0;
+    }
 
 }
     
