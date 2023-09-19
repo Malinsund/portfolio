@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
 
+    <script src="main.js" defer></script>
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+
+    
     <title>Contact | Portfolio</title>
 </head>
 <body>
+    
     
     <header>
         <h2> <a href="index.html" class="logo">MS</a></h2> <!--logga i vänstra hörnet som leder till hem sidan-->
@@ -16,10 +25,14 @@
             <a href="projects.html">Projects</a> <!--knapp som leder till sida med projekt-->
             <a href="About.html">About me</a><!-- knapp som leder till sidan om mig-->
             <a href="contact.html">Contact</a><!-- knapp som leder till sidan kontakt-->
+            <label class="switch">
+                <input onclick="myFunction()"  type="checkbox">
+                <span class="slider round"></span>
+            </label>
         </div>
     </header>
     
-
+    <img class="bubble" src="bilder/bubbla.png" alt="pratbubbla">
     <div class="contact-container"> <!-- en div för huvudinnehållet på sidan-->
         <div class="contact-links"> <!-- här i placeras bilder med länkar till sidor där man kan kontakta mig-->
             <h1>Contact me on:</h1><!--rubriken ovanför bildlänkarna-->
@@ -40,7 +53,7 @@
                     <textarea id="freetext" name="freetext" rows="10" cols="50">Enter text here... </textarea> <!--Skrivfält där användaren fyller i fritext i som ett meddelande-->
                 </div>    
                 <!--<div class="send.button"><button type=”button” onclick=”alert(‘Sent!’)”>Send</button></div>-->
-                <input class="submitbutton" type="submit" value="Send"> <!-- Knapp som skickar iväg mejlet-->
+                <input onclick="formAlert()" class="submitbutton" type="submit" value="Send"> <!-- Knapp som skickar iväg mejlet-->
               </form> <!-- slut p formuär-->
         </div>
     </div>

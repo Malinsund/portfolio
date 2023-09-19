@@ -2,8 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: #020032;
+    font-family: 'merriweather' , serif;
+}
+body {
+    background-color: rgb(233, 231, 231);
+    color: black;
+}
+.dark-mode {
+    background-color: black;
     color: white;
 }
 
@@ -14,7 +20,7 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background: #010022;
+    
 }
 
 header{
@@ -25,34 +31,116 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #808080;
 }
  /* styling till loggan i vänstr hörnet */
 header .logo { 
     position: relative;
-    color: #ff820e;
+    color: black;
     font-size: 25px;
     text-decoration: none;
     text-transform: uppercase;
+    border: 2px solid black;
+    padding:5px;
+    border-radius: 50%;
 
 }
  /*styling till länkarna på navigeringsmeyn*/
 header .navigation a{ 
-    color: #ff820e;
-    background: #010022;
+    color: black;
+    background: gray;
     text-decoration: none;
     font-weight: 500;
-    padding: 2px 15px;
+    padding: 4px 15px;
     border-radius: 20px;
 
 }
 
 header .navigation a:hover{
-    background: #ff820e;
-    color: #010022;
+    background: black;
+    color: white;
+}
+
+/* Här börjar stylingen till Dark mode "switchen"*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* tar bort hur html utseendet såg ut innan */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* där pluppen glider i */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: black;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px white;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rundad plupp */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+/* här börjar styling för darkmode på navigeringen*/
+.dark-mode header {
+    background-color: white;
+}
+.dark-mode .navigation a {
+    background-color: white;
+}
+/* här slutar stylingen för dark mode på navigeringen */
+
+button {
+    padding: 5px;
+    border: solid black;
 }
 
 .content {
-    margin: 180px 100px; /* ändrar margin så texten placeras snyggt */
+    margin: 180px 10px; /* ändrar margin så texten placeras snyggt */
     width: 100%;
     padding: 50px 100px;
     display: flex;
@@ -62,15 +150,26 @@ header .navigation a:hover{
 }
 
 .content .info h1{
-    color: white;
-    font-size: 60px; /* ändrar textstorleken*/
+    color: black;
+    font-size: 120px; /* ändrar textstorleken*/
     text-transform: uppercase; /*gör stora bokstäver*/
     font-weight: 800;
-    line-height: 60px;
+    line-height: 95px;
     margin-bottom: 30px;
-    text-shadow: 5px 5px 5px black;
+    background-color: rgba(255, 255, 0, 0.542);
+    padding: 20px;
    
 }
+/* Ändrar stylingen på hem-sidans huvudinnehåll när dark mode är aktivt*/
+.dark-mode .content .info h1{
+    color: white;
+    background-color: black;
+    border: 4px solid gray;
+}
+.dark-mode .content .info span {
+    color: white;
+}
+/*här slutar stylingen för darkmode på huvudtexten*/
 
 .content .info p{
     font-size: 20px;
@@ -80,196 +179,204 @@ header .navigation a:hover{
 }
 
 .content .info span{
-    color: #ff820e;
+    color: gray;
+    
 }
-
 .media {
 padding: 40px;
-transform: rotate(10deg);
-width: 40vw;
-/*overflow: hidden;*/
+width: 90vw;
 margin: 20px;
 z-index: 2;
+border: 2px solid black;
+}
+.dark-mode .media{
+    border: 2px solid white;
 }
 
 /* här börjar stylingen på projects-sidan */
 
-.container {
-    display: flex; /* Aktiverar Flexbox på container-elementet */
-    height: 70vh; /* Sätter höjden till 100% av skärmens höjd */
-}
-     
-    /* Stil för sidomenyn */
-.sidebar {
-    flex: 1; /* Ger sidomenyn en flexvärd på 1 */
-    background-color: #010022; /* Bakgrundsfärg för sidomenyn */
-    padding: 20px; /* Inre marginal på alla sidor av sidomenyn */
-    color: white; /* Textfärg för sidomenyn */
-    margin-top: 100px;
-    
-}
-     
-    /* Stil för länkar inom sidomenyn */
-    .sidebar a {
-        color: white; /* Textfärg för länkar inom sidomenyn */
-        text-decoration: none; /* Tar bort understrykning från länkar */
-        display: block; /* Gör länkarna block-nivå, vilket fyller hela raden */
-        margin-bottom: 10px; /* Yttre marginal under varje länk */
-    }
-        
-        /* Lägger till understrykning när man för musen över länken */
-    .sidebar a:hover {
-        text-decoration: underline;
-    }
-    .sidebar img {
-        margin-top: 20px;
-    } 
-     
-    /* Stil för huvudinnehållet */
-.main-content {
-    flex: 3; /* Ger huvudinnehållet en flexvärd på 3, vilket gör det tre gånger bredare än sidomenyn */
-    padding: 20px; /* Inre marginal runt huvudinnehållet */
-    display: grid; /* Aktiverar Grid-layout på huvudinnehållet */
-    grid-template-columns: repeat(3, 1fr); /* Definierar tre kolumner med lika storlek */
-    gap: 20px; /* Avstånd mellan varje kort inom griden */
-
-}
-h1 {
-    color: #ff820e;
+.projectinfo {
+    text-align: center;
+    margin: 10px;
 }
 
-    /* Allmänna stilar för varje kort inom huvudinnehållet */
-.card {
-    border: 5px #ffffff7d; /* Ger kortet en grå kant */
-    border-radius: 5px; /* Rundar kanterna på kortet */
-    overflow: hidden; /* Förhindrar att innehåll går utanför kortets kanter */
-    
-    max-height: 500px;
-    margin-top: 10%;
+#demo { /* karusellen*/
+    max-width: 50%; /* Ändrar storleken på karusellen*/
+    margin-left: 25%; /* plaserar karusellen i mitten av sidan */
 }
-     
-    /* Anpassar bilden inom kortet till kortets bredd */
-.card img {
-    max-width: 100%; /* Gör att bilden inte blir större än kortets bredd */
-    display:block; /* Gör att bilden tar upp hela raden */
-    
+.gul {
+    margin-top: 10px;
 }
-     
-    /* Stil för texten inuti kortet */
-.card p {
-    padding: 10px; /* Inre marginal runt texten inuti kortet */
-    background-color: #ffffff7d;
-    color: #010022;
-}
-     
-    /* Stil för knappen inom kortet */
-.card button {
-    background-color: #010022; /* Bakgrundsfärg för knappen */
-    color: white; /* Textfärg för knappen */
-    height: 50px;
-    width: 100%;
-    border: solid #ff820e; /* Tar bort standardkanten runt knappen */
-    padding: 10px 15px; /* Inre marginal för texten inuti knappen */
-
-    cursor: pointer; /* Ändrar muspekaren till en hand när den är över knappen */
-    transition: background-color 0.3s; /* Lägger till en mjuk övergångseffekt för bakgrundsfärgen */
-}
-     
-    
-.card button:hover {
-    background-color: #ff820e; /* Ändrar bakgrundsfärgen när man för musen över knappen */
+.gul2 {
+    display: block;
+    margin-top: 10px;
+    margin-left: 50px;
+    border-bottom: 15px groove #808080;
+    border-right: 20px groove #808080;
 }
 
-
+     
 /* Här börjar stylingen till "om mig"-sidan */
 
 .about-columns {
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20% ;
-    grid-template-rows: 100px 100px 200px 100px 100px 100px;
+    height: 100%;
+    gap: 10px;
+    grid-template-columns: 20% 15% 20% 20% 20% ;
+    grid-template-rows: 1fr 1fr 1fr 1fr; 
     margin-top: 50px;
     padding: 10px;
 
 }
 .col-1 {
- grid-row: 2/5;
+ grid-row: 1/ span 3;
+ grid-column: 1 / span 2;
  overflow: hidden; /*Gör att bilden håller sig innanför det den blivit tillsagd att ligga*/
+ z-index: -3;
+ margin-left: 15px;
+ margin-top: 100px;
+
  
 }
 .col-1 img {
- width: 300px;
- height: 400px; 
- object-fit:contain; /* scalar ner bilden för att passa in i angivna ramar */
- border-radius: 50%;
+ width: 400px;
+ height: 600px; 
+ object-fit:cover; /* scalar ner bilden för att passa in i angivna ramar */
+ background-color: black;
+ border: solid 4px black;
  
-}
-
-.line {
-    visibility: hidden;
 }
 
 .col-2 {
     grid-column-start: 2;
     grid-column-end: 5;
-    grid-row-start: 2;
+    grid-row-start: 1;
+    background-color: rgba(128, 128, 128, 0.367);
+    color: black;
+    padding-left: 15px;
+    border-top: solid 4px black;
+    border-right: solid 5px black;
+    margin-top: 30px;
+    border-bottom-left-radius: 15px;
+}
+.dark-mode .col-2{
+    color: white;
+}
+
+.col-2 h3 {
+    color: yellow;
 }
 
 .col-3 {
-    grid-row-start: 3;
-    grid-column-start: 6;
-    grid-column-end: 3;
+    grid-row: 2;
+    grid-column-start: 3;
+    grid-column-end: 6;
+    background-color: rgba(255, 255, 0, 0.643);
+    padding: 10px;
+    z-index: 2;
+    margin-top: 10px;
+    border-left: solid 10px black;
+    border-bottom: solid 10px black;
+    border-top-right-radius: 15px;
+
+}
+.col-3 h3 {
+    color: rgb(97, 95, 95);
+}
+.col-3 p{
+    color: black;
+    z-index: 2;
+}
+.dark-mode .col-3 {
+    background: yellow;
 }
 
-
 .col-4 {
-    grid-row-start: 4;
+    grid-row: 3/4;
     grid-column-start:2;
     grid-column-end:5;
+    background-color: rgba(128, 128, 128, 0.627);
+    padding: 5px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    border: outset 10px yellow;
 
+}
+.col-4 h3 {
+    color: black;
+}
+.col-4 p{
+    color: white;
 }
 
 
 .col-5 {
-    grid-row-start: 6;
+    grid-row-start: 4;
     grid-column: 5 / 3;
-}
-h3 {
-    color: #ff820e;
-}
+    background-color: black;
+    padding: 10px;
+    margin-left: 70px;
+    border-top: 7px solid gray;
+    border-left: 20px solid gray;
+    max-height: 100px;
 
-
+}
+.col-5 h3 {
+    color: white;
+}
+.col-5 p{
+    color:white;
+}
 
 /* Här börjar stylingen till kontakt-sidan*/
+
 .contact-container {
     display: block;
     margin: auto;
     width: 50%;
     padding-top: 5%;
     text-align: center;
-    
+}
+.bubble {
+    margin: 100px 100px;
+    max-width: 300px; /*Ändrar storleken på bilden*/
+    position: absolute;
+    z-index: -3; /*Lägger bilden bakom texten*/
+    transform: rotate(90);
+    animation: rotate 5s; /*gör att animationen håller på i 5 sekunder*/
+}
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg); /* bestämmer vad det är animationen skall göra*/
+    }
+}
+hr {
+   border:5px solid; /* gör att strecket blir tjockare*/
+   border-radius:5px;
+   
 }
 .contact-container h2 {
     padding: 10px;
+    
 }
 .contact-links a {
     margin: 10px;
     
-    
 }
+
 input {
-    background-color: white; /* ändrar färgen för textfältet*/
+    background-color: rgb(191, 183, 183); /* ändrar färgen för textfältet*/
     box-sizing: border-box;
-    border: 5px #ff820e;
     padding: 12px;
     margin: 12px;
     width: 300px;
-    color: #010022;
+    color: black;
 } 
 label {
     padding: 12px;
 }
 textarea {
-    background-color: white;
+    background-color: rgb(191, 183, 183);
     color: #010022;
 }
 .textbox{
@@ -277,14 +384,16 @@ textarea {
 }
 
 .submitbutton {
-    background-color: #ff820e;
-    padding: 5px; /* ändrar padding inanför knappen*/
+    background-color: black;
+    padding: 10px; /* ändrar padding inanför knappen*/
     margin:5px; /* ändrar marginaler runt knappen */
     border: none; /* Tar bort standardkanten på knappen*/
-    color: #010022;
+    color: white;
+    font-size: 20px;
+    border: groove 5px black;
 }
 .submitbutton:hover {
-    background-color: #ca680b;
+    background-color: gray;
     cursor: pointer;
 }
 
@@ -294,10 +403,12 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 30px;
+    margin: 4px;
 }
 
 footer img { 
-    max-width: 20px; /* annpassar bildlänkarnas storlek */
+    max-width: 30px; /* annpassar bildlänkarnas storlek */
     margin-left: 5px; /* anpassar bildlänkarnas avstånd till varandra från vänster */
 }
 
@@ -305,33 +416,16 @@ footer img {
  /* här börjar brytpunkt/responsivitet för navigeringsremsan */
     header {
         padding: 10px;
-        background-color: #ff820e;
-    }
-
-    header .logo {
-        background-color: #ff820e;
-        color: #010022;
-    }
-
-    .navigation {
-        background-color: #ff820e;
-    }
-    header .navigation a {
-        background-color:#ff820e;
-        color: #010022;
-        
     }
 
  /*responsivitet för huvudinnehållet på hem sidan */
     .content {
-        margin: 50px 10px; /* ändrar margin så texten placeras snyggt */
-       /* width: 550px;*/
+        max-width: 200px;
         padding: 0px 10px;
         display: grid;
         grid-template-rows: 50% 50%;
-        
+        margin: 0;
     }
-    
     .content .info h1{
         color: white;
         font-size: 35px; /* ändrar textstorleken*/
@@ -339,8 +433,7 @@ footer img {
         font-weight: 600;
         line-height: 40px;
         margin-bottom: 20px;
-        text-shadow: 5px 5px 5px black;
-       
+        
     }
     
     .content .info p{
@@ -349,28 +442,16 @@ footer img {
         margin-bottom: 40px;
         max-width: 350px;
     }
-    .media {
-        transform: rotate(0deg);
-        padding: 0;
-    }
     .media img {
         max-width: 300px;
-        
         }
 
  /* här börjar responsivitet för projekt sidan med brytpunkt på 600*/
-
     .container {
         display: grid; /* Aktiverar Flexbox på container-elementet */
         height: 70vh; /* Sätter höjden till 100% av skärmens höjd */
     }
 
-    .main-content { 
-        padding: 20px; /* Inre marginal runt huvudinnehållet */
-        display: block; /* Aktiverar Grid-layout på huvudinnehållet */
-        /* grid-template-columns: ; */
-        gap: 20px; /* Avstånd mellan varje kort inom griden */
-    }
   /*Här börjar responsiviteten för sidan about me med brytpunkt på 600 */
 
     .about-columns {
@@ -384,8 +465,7 @@ footer img {
         
     }
     .col-1 img {
-        border-radius: 0%; /*tar bort de rundade hörnen */
-        border: solid #ca680b; /* lägger till en orange kant */
+        border-radius: 20px; /*tar bort de rundade hörnen */
         object-fit:fill; /* fyller ut bilden */
     }
 
@@ -397,9 +477,6 @@ footer img {
     .col-5 img{
         max-width: 50px;
     }
-    
-  
-
     /* här börjar responsiviteten till kontakta mig sidan med en brytpunkt på 600*/
 
     .contact-container h1 {
@@ -413,10 +490,8 @@ footer img {
     .contact-links img {
         max-width: 50px;
         margin: 15px 5px 1px 10px;
-        
     }
 
-    
     .form {
         display: flex;
         flex-direction: column;
@@ -427,5 +502,206 @@ footer img {
     }
 
 }
+@media only screen and (max-width: 768px) {
+    /* här börjar brytpunkt/responsivitet för navigeringsremsan */
+       header {
+           padding: 10px;
+           
+       }
+       
+   
+    /*responsivitet för huvudinnehållet på hem sidan */
+       .content {
+           margin: auto; 
+           padding: 0px 10px;
+           display: grid;
+           grid-template-rows: 50% 50%;
+           text-align: center;
+           justify-content: center;
+       }
+       .content .info h1{
+           color: white;
+           font-size: 35px; /* ändrar textstorleken*/
+           text-transform: uppercase; /*gör stora bokstäver*/
+           font-weight: 600;
+           line-height: 40px;
+           margin-bottom: 20px;
+           
+       }
+       
+       .content .info p{
+           font-size: 15px;
+           font-weight: 500;
+           margin-bottom: 40px;
+           max-width: 350px;
+       }
+       .media {
+           transform: rotate(0deg);
+           padding: 0;
+       }
+       .media img {
+           max-width: 300px;
+           }
+   
+    /* här börjar responsivitet för projekt sidan med brytpunkt på 768*/
+       .container {
+           display: grid; /* Aktiverar Flexbox på container-elementet */
+           height: 70vh; /* Sätter höjden till 100% av skärmens höjd */
+       }
+   
+       .main-content { 
+           padding: 20px; /* Inre marginal runt huvudinnehållet */
+           display: block; /* Aktiverar Grid-layout på huvudinnehållet */
+           /* grid-template-columns: ; */
+           gap: 20px; /* Avstånd mellan varje kort inom griden */
+       }
+     /*Här börjar responsiviteten för sidan about me med brytpunkt på 768 */
+   
+       .about-columns {
+           display: flex; /* här har jag gjort om till flex för att columnerna skall hamna på ett sätt*/
+           flex-direction: column;
+           padding: 10px;
+       
+       }
+       .col-1 {
+           text-align: left; /* jag vet inte varför men den här gjorde att bilden hamnade till vänster*/
+           
+       }
+       .col-1 img {
+           border-radius: 20px; /*tar bort de rundade hörnen */
+           object-fit:fill; /* fyller ut bilden */
+       }
+   
+       .line {
+           visibility: visible;
+           margin: 10px;
+           
+       }
+       .col-5 img{
+           max-width: 50px;
+       }
+       /* här börjar responsiviteten till kontakta mig sidan med en brytpunkt på 768*/
+   
+       .contact-container h1 {
+           font-size: 25px;
+       }
+   
+       .contact-container h2{
+           font-size: 20px;
+       }
+   
+       .contact-links img {
+           max-width: 50px;
+           margin: 15px 5px 1px 10px;
+       }
+   
+       .form {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           max-width: 550px;
+           padding:0;
+           margin: 0;
+       }
+}
+@media only screen and (max-width: 1024px) {
+
+    /*responsivitet för huvudinnehållet på hem sidan */
+       .content {
+          /* margin: 100px 200px; /* ändrar margin så texten placeras snyggt */
+          /* width: 550px;*/
+           padding: 0px 10px;
+           display: grid;
+           grid-template-rows: 50% 50%;
+           text-align: center;
+       }
+       .content .info h1{
+           color: white;
+           font-size: 35px; /* ändrar textstorleken*/
+           text-transform: uppercase; /*gör stora bokstäver*/
+           font-weight: 600;
+           line-height: 40px;
+           margin-bottom: 20px;
+           text-shadow: 5px 5px 5px black;
+          
+       }
+       
+       .content .info p{
+           font-size: 15px;
+           font-weight: 500;
+           margin-bottom: 40px;
+           max-width: 350px;
+       }
+       .media {
+           transform: rotate(0deg);
+           padding: 0;
+       }
+       .media img {
+           max-width: 300px;
+           }
+   
+    /* här börjar responsivitet för projekt sidan med brytpunkt på 768*/
+       .container {
+           display: grid; /* Aktiverar Flexbox på container-elementet */
+           height: 70vh; /* Sätter höjden till 100% av skärmens höjd */
+       }
+   
+       .main-content { 
+           padding: 20px; /* Inre marginal runt huvudinnehållet */
+           display: block; /* Aktiverar Grid-layout på huvudinnehållet */
+           /* grid-template-columns: ; */
+           gap: 20px; /* Avstånd mellan varje kort inom griden */
+       }
+     /*Här börjar responsiviteten för sidan about me med brytpunkt på 768 */
+   
+       .about-columns {
+           display: flex; /* här har jag gjort om till flex för att columnerna skall hamna på ett sätt*/
+           flex-direction: column;
+           padding: 10px;
+       
+       }
+       .col-1 {
+           text-align: left; /* jag vet inte varför men den här gjorde att bilden hamnade till vänster*/
+           
+       }
+       .col-1 img {
+           border-radius: 20px; /*tar bort de rundade hörnen */
+           object-fit:contain ; /* fyller ut bilden */
+       }
+   
+       .line {
+           visibility: visible;
+           margin: 10px;
+           
+       }
+       .col-5 img{
+           max-width: 50px;
+       }
+       /* här börjar responsiviteten till kontakta mig sidan med en brytpunkt på 1024*/
+   
+       .contact-container h1 {
+           font-size: 25px;
+       }
+   
+       .contact-container h2{
+           font-size: 20px;
+       }
+   
+       .contact-links img {
+           max-width: 50px;
+           margin: 15px 5px 1px 10px;
+       }
+   
+       .form {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           max-width: 550px;
+           padding:0;
+           margin: 0;
+       }
+   
+   }
+       
     
 
